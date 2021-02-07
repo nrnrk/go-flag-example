@@ -15,10 +15,15 @@ var h = &Hoge{}
 
 func main() {
 	fs := flag.NewFlagSet("ExampleValue", flag.ExitOnError)
+	// URL argument. Check `url.go` for details
 	fs.Var(&URLValue{u}, "url", "URL to parse")
+	// Time argument. Check `time.go` for details
 	fs.Var(&TimeValue{t}, "time", "Time to parse (RFC3339, RFC1123, RFC1123Z)")
+	// Duration argument. Check `duration.go` for details
 	fs.Var(&DurationValue{&d}, "duration", "Duration to parse (supported units: 'ns', 'ms', 's', 'm', 'h') ")
+	// Array argument. Check `array.go` for details
 	fs.Var(&ArrayValue{&a}, "array", "Array to parse (spearator: ',') ")
+	// Hoge argument. Check `hoge.go` for details
 	fs.Var(&HogeValue{h}, "hoge", "Hoge to parse (json format)")
 
 	fs.Parse([]string{
